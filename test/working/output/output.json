@@ -1,0 +1,94 @@
+[
+  {
+    "id": "resp_67e4558caedc8191a1e9a85a43b1089d00849eb2681293e8",
+    "created_at": 1743017356.0,
+    "error": null,
+    "incomplete_details": null,
+    "instructions": null,
+    "metadata": {},
+    "model": "gpt-4o-mini-2024-07-18",
+    "object": "response",
+    "output": [
+      {
+        "id": "msg_67e4558d25808191846dcee5d08979da00849eb2681293e8",
+        "content": [
+          {
+            "annotations": [],
+            "text": "\n{\"Patient_First_Name\":\"Linea\",\"Patient_Last_Name\":\"Albert\",\"Patient_ID\":\"6942069\",\"Patient_Email\":\"Undetermined\",\"Patient_Phone_Number\":\"6087202137\"}",
+            "type": "output_text"
+          }
+        ],
+        "role": "assistant",
+        "status": "completed",
+        "type": "message"
+      }
+    ],
+    "parallel_tool_calls": true,
+    "temperature": 1.0,
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 1.0,
+    "max_output_tokens": null,
+    "previous_response_id": null,
+    "reasoning": {
+      "effort": null,
+      "generate_summary": null
+    },
+    "status": "completed",
+    "text": {
+      "format": {
+        "schema_": {
+          "type": "object",
+          "properties": {
+            "Patient_First_Name": {
+              "type": "string",
+              "description": "The first name of the patient."
+            },
+            "Patient_Last_Name": {
+              "type": "string",
+              "description": "The last name of the patient."
+            },
+            "Patient_ID": {
+              "type": "string",
+              "description": "The unique identifier for the patient."
+            },
+            "Patient_Email": {
+              "type": "string",
+              "description": "The email address of the patient."
+            },
+            "Patient_Phone_Number": {
+              "type": "string",
+              "description": "The phone number of the patient."
+            }
+          },
+          "required": [
+            "Patient_First_Name",
+            "Patient_Last_Name",
+            "Patient_ID",
+            "Patient_Email",
+            "Patient_Phone_Number"
+          ],
+          "additionalProperties": false
+        },
+        "type": "json_schema",
+        "description": null,
+        "name": "patient_data",
+        "strict": true
+      }
+    },
+    "truncation": "disabled",
+    "usage": {
+      "input_tokens": 1158,
+      "input_tokens_details": {
+        "cached_tokens": 1152
+      },
+      "output_tokens": 38,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 1196
+    },
+    "user": null,
+    "store": true
+  }
+]

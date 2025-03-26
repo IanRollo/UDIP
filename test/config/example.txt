@@ -1,0 +1,28 @@
+Given an extract of a medical form, select a document type from the following list:
+Advance Directive, Referral, Pre-Authorization, Screening Form, or Other.
+Find the patient's last name, first name, date of birth, ID number, email, and phone number without formatting.
+Print the document type and requested information in CSV format.
+For the phone number field, return the digits only without any dashes, parentheses, or other separators.
+
+OptumRx	·M/S  CA   106-0286   · 3515  Harbor  Blvd.  ·Costa  Mesa,   CA  92626
+Prior	 Authorization			 Request		 Form
+DO  NOT  COPY   FOR  FUTURE	USE.  FORMS	ARE  UPDATED	FREQUENTLY	  AND  MAY   BE  BARCODED
+Member		  Information		   (required)							   Provider		Information
+(required)
+Member	 Name:	Rollo,													 Provider   Name:	Mantis	Tobaggan,	DDS
+lan
+Insurance	ID#:  MX3335555												   NPI#:   N43567						  Specialty:   Dentistry
+Date
+of Birth:March	15,  1997											  Office Phone:	888-888-8888
+Street  Address:4151	  Willamette										   Office  Fax:  999-999-9999
+Ave
+City:San   Diego							State:CA		  Zip:92117		Office  Street  Address:	555  Legume	 Drive
+Phone:6087204376																City: Jamaica						  State:CA		   Zip:87596
+Medication		   Information
+(required)
+Medication	Name:	Amoxycillin											 Strength:   500   MG					Dosage
+Form:   Lozenge
+Check	ifrequesting	brand
+L
+orally  morning	and
+Check	ifrequest   is for continuation	 of  therapy					Directions   for Use:   Take						   night.

@@ -1,0 +1,2 @@
+Given an extract of a medical form, select a document type from the following list:
+Advance Directive, Referral, Pre-Authorization, Screening Form, or Other.
