@@ -77,11 +77,15 @@ def generate_word_poly_debug_file(analyze_result) -> str:
     return "\n".join(output_lines)
 
 class PatientData(BaseModel):
+    Document_Type: str
     Patient_First_Name: str
     Patient_Last_Name: str
     Patient_ID: str
     Patient_Email: str
     Patient_Phone_Number: str
+
+
+patient_schema_dict = PatientData.model_json_schema()
 class DocumentReconstructor:
 
     def __init__(self, config_dir: str):
@@ -131,40 +135,9 @@ class DocumentReconstructor:
                 "format": {
                     "type": "json_schema",
                     "name": "patient_data",
-                    "strict": True,
-                    "schema": {
-                        "type": "object",
-                        "properties": {
-                            "Patient_First_Name": {
-                                "type": "string",
-                                "description": "The first name of the patient."
-                            },
-                            "Patient_Last_Name": {
-                                "type": "string",
-                                "description": "The last name of the patient."
-                            },
-                            "Patient_ID": {
-                                "type": "string",
-                                "description": "The unique identifier for the patient."
-                            },
-                            "Patient_Email": {
-                                "type": "string",
-                                "description": "The email address of the patient."
-                            },
-                            "Patient_Phone_Number": {
-                                "type": "string",
-                                "description": "The phone number of the patient."
-                            }
-                        },
-                        "required": [
-                            "Patient_First_Name",
-                            "Patient_Last_Name",
-                            "Patient_ID",
-                            "Patient_Email",
-                            "Patient_Phone_Number"
-                        ],
-                        "additionalProperties": False
-                    }
+                    "strict": False,
+                    "schema":
+                        patient_schema_dict
                 }
             },
             # Ensure that PatientData is defined correctly or replace with the appropriate value

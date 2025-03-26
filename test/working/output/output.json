@@ -1,7 +1,7 @@
 [
   {
-    "id": "resp_67e4558caedc8191a1e9a85a43b1089d00849eb2681293e8",
-    "created_at": 1743017356.0,
+    "id": "resp_67e45c9046208191ab7653157de3427f003229c05210204b",
+    "created_at": 1743019152.0,
     "error": null,
     "incomplete_details": null,
     "instructions": null,
@@ -10,11 +10,11 @@
     "object": "response",
     "output": [
       {
-        "id": "msg_67e4558d25808191846dcee5d08979da00849eb2681293e8",
+        "id": "msg_67e45c90bd6081919ba31cb189981783003229c05210204b",
         "content": [
           {
             "annotations": [],
-            "text": "\n{\"Patient_First_Name\":\"Linea\",\"Patient_Last_Name\":\"Albert\",\"Patient_ID\":\"6942069\",\"Patient_Email\":\"Undetermined\",\"Patient_Phone_Number\":\"6087202137\"}",
+            "text": "{\"Document_Type\":\"Pre-Authorization\",\"Patient_First_Name\":\"Linea\",\"Patient_Last_Name\":\"Albert\",\"Patient_ID\":\"6942069\",\"Patient_Email\":\"\",\"Patient_Phone_Number\":\"608-720-21377\"}",
             "type": "output_text"
           }
         ],
@@ -38,55 +38,60 @@
     "text": {
       "format": {
         "schema_": {
-          "type": "object",
           "properties": {
+            "Document_Type": {
+              "title": "Document Type",
+              "type": "string"
+            },
             "Patient_First_Name": {
-              "type": "string",
-              "description": "The first name of the patient."
+              "title": "Patient First Name",
+              "type": "string"
             },
             "Patient_Last_Name": {
-              "type": "string",
-              "description": "The last name of the patient."
+              "title": "Patient Last Name",
+              "type": "string"
             },
             "Patient_ID": {
-              "type": "string",
-              "description": "The unique identifier for the patient."
+              "title": "Patient Id",
+              "type": "string"
             },
             "Patient_Email": {
-              "type": "string",
-              "description": "The email address of the patient."
+              "title": "Patient Email",
+              "type": "string"
             },
             "Patient_Phone_Number": {
-              "type": "string",
-              "description": "The phone number of the patient."
+              "title": "Patient Phone Number",
+              "type": "string"
             }
           },
           "required": [
+            "Document_Type",
             "Patient_First_Name",
             "Patient_Last_Name",
             "Patient_ID",
             "Patient_Email",
             "Patient_Phone_Number"
           ],
-          "additionalProperties": false
+          "title": "PatientData",
+          "type": "object"
         },
         "type": "json_schema",
         "description": null,
         "name": "patient_data",
-        "strict": true
+        "strict": false
       }
     },
     "truncation": "disabled",
     "usage": {
       "input_tokens": 1158,
       "input_tokens_details": {
-        "cached_tokens": 1152
+        "cached_tokens": 0
       },
-      "output_tokens": 38,
+      "output_tokens": 43,
       "output_tokens_details": {
         "reasoning_tokens": 0
       },
-      "total_tokens": 1196
+      "total_tokens": 1201
     },
     "user": null,
     "store": true
