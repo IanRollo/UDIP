@@ -58,13 +58,14 @@ def replace_spaces_with_tab(input_file_name, output_file_name):
         output_file.close()
 
 # The reconstructed document method is no longer efficient, and is deprecated, leaving for now in case it becomes efficient again.
-def generate_debug_file(analyze_result: AnalyzeResult, debug_dir: str) -> str:
+def generate_reconstructed_debug_file(analyze_result: AnalyzeResult, debug_dir: str) -> str:
     reconstructed_filepath = path.join(debug_dir, 'reconstructed_file.txt')
     tab_reconstructed_filepath = path.join(debug_dir, 'tab_reconstructed_file.txt')
     reconstruct_document(analyze_result, reconstructed_filepath)
     replace_spaces_with_tab(reconstructed_filepath, tab_reconstructed_filepath)
     return read_from_file(tab_reconstructed_filepath)
 
+# Using JSON response seems to cause issues with GPT's ability to understand what the spatial sequencing this provides means. I have no idea why.
 def generate_word_poly_debug_file(analyze_result) -> str:
     output_lines = []
     # Iterate over each paragraph in the result
@@ -76,6 +77,14 @@ def generate_word_poly_debug_file(analyze_result) -> str:
             output_lines.append(f"{paragraph.content} {point_str}")
     return "\n".join(output_lines)
 
+def generate_base_debug_file(analyze_result) -> str:
+    output_lines = []
+    # Iterate over each paragraph in the result
+    for paragraph in analyze_result.paragraphs:
+        # Make sure there is at least one bounding region and polygon
+            output_lines.append(f"{paragraph.content}")
+    return "\n".join(output_lines)
+
 class PatientData(BaseModel):
     Document_Type: str
     Patient_First_Name: str
@@ -84,7 +93,7 @@ class PatientData(BaseModel):
     Patient_Email: str
     Patient_Phone_Number: str
 
-
+#Converts to a dict to enable it to work with GPT
 patient_schema_dict = PatientData.model_json_schema()
 class DocumentReconstructor:
 
@@ -102,7 +111,7 @@ class DocumentReconstructor:
 
 
     def parse(self, filename: str, analyze_result: AnalyzeResult, debug_dir: str):
-        debug_content = generate_word_poly_debug_file(analyze_result)
+        debug_content = generate_base_debug_file(analyze_result)
         debug_filepath = path.join(debug_dir, filename.replace(".", "-") + ".txt")
         write_to_file(debug_content, debug_filepath)
         client = OpenAI(

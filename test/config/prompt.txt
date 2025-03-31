@@ -1,2 +1,7 @@
 Given an extract of a medical form, select a document type from the following list:
 Advance Directive, Referral, Pre-Authorization, Screening Form, or Other.
+Then provide the information requested by the provided schema. Remember that a Patient ID can either be a plan number, an ID number, or a MRN (Medical Record Number), but should not be a CSN (Case Serial Number) or a group number, use your best judgement to determine that.
+It should be the unique identifier for a patient.
+The patient's phone number should be written without any formatting (such as 6087204376, and should have the correct amount of numbers for an American phone number. If the phone number does not fulfill these criteria, input "Undetermined".
+If the phone number is clearly from another country, put "Foreign".
+Please note that the numbers appended to the end of each line indicate the coordinates that the text was found at, you may use these to find related information, even if it does not appear directly beside it in the extract. The requested information will never be one of the X or Y coordinates at the end of a line.

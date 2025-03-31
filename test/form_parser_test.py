@@ -12,6 +12,9 @@ class FormParserTest(unittest.TestCase):
         form_parser = FormParser(azure_key, './working')
         document_reconstructor = DocumentReconstructor('./config')
         form_parser.parse(document_reconstructor)
+        from src.post_output_conversions import MessageConversions
+        converter = MessageConversions('./working')
+        converter.convert_and_write_hl7_from_json()
         # self.assertEqual(True, False)  # add assertion here
         # TODO: once we have consistent test cases, use the same thing every time and assert that the contents of the
         #  CSV are correct

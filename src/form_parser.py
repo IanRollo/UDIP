@@ -18,6 +18,7 @@ import json
 from src.document_reconstructor import DocumentReconstructor
 from src.utils import open_file
 import argparse
+from src.post_output_conversions import MessageConversions
 
 ENDPOINT = 'https://roformrecognizer1.cognitiveservices.azure.com/'
 
@@ -95,3 +96,5 @@ def __main__():
     document_reconstructor = DocumentReconstructor(args.config_dir)
     form_parser = FormParser(args.azure_api_key, args.working_dir)
     form_parser.parse(document_reconstructor)
+    hl7_converter = MessageConversions(args.working_dir)
+    hl7_converter.convert_and_write_hl7_from_json()

@@ -26,13 +26,16 @@ def __main__():
             )
         result = poller.result()
 
-        # for paragraph in result.paragraphs:
-        #     print(paragraph.content)
+        for paragraph in result.paragraphs:
+            print(paragraph.content)
+            output_line = "{} {}".format(paragraph_content)
+            output_file.write(output_line + "\n")
 
-        with open(output_file_name, "w") as output_file:
-            for paragraph in result.paragraphs:
-                paragraph_content, polygon1 = paragraph.content, paragraph.bounding_regions[0].polygon[0]
-                point_str = "{0} {1}".format(polygon1.x, polygon1.y)
-                print(paragraph_content, point_str)
-                output_line = "{} {}".format(paragraph_content, point_str)
-                output_file.write(output_line + "\n")
+        #This section deals with coordinate information, but 4o-mini seems to get confused by those
+        #with open(output_file_name, "w") as output_file:
+        #    for paragraph in result.paragraphs:
+        #       paragraph_content, polygon1 = paragraph.content, paragraph.bounding_regions[0].polygon[0]
+        #        point_str = "{0} {1}".format(polygon1.x, polygon1.y)
+        #        print(paragraph_content, point_str)
+        #        output_line = "{} {}".format(paragraph_content, point_str)
+        #        output_file.write(output_line + "\n")
