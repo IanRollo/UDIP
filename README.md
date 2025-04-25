@@ -1,6 +1,6 @@
 # Form Parser
 
-This form-parsing program takes in a folder full of images of forms, processes them, and writes the contents of all of the forms into a single CSV.
+This form-parsing program takes in a folder full of images of forms, processes them, and writes the contents of all of the forms into a single JSON.
 
 ## Setup & Use
 
@@ -13,10 +13,10 @@ During development, we've been running the form parser within PyCharm. To run th
 1. Download PyCharm, if you don't already have it. The community edition can be downloaded for free.
 2. Clone this repository and navigate into the project directory.
    ```bash
-   $ cd ChatGPT4IR
+   $ cd UDIP
    ```
-3. Open the project folder (`ChatGPT4IR`) in PyCharm.
-3. Move your input files into the `/test/working/inputs` directory.
+3. Open the project folder (`UDIP`) in PyCharm.
+3. Move your input files into the `/test/working/inputs` directory. Some are already available to mess around with.
 4. Run the unit test. Outputs will be visible in the `/test/working/outputs` directory.
 
 ### Command Line
@@ -31,8 +31,8 @@ During development, we've been running the form parser within PyCharm. To run th
    ```
 3. Put the images of the forms you want to parse into a folder.
 4. Create a folder to store the debug output in. If you don't know what that is, don't worry about it; just create an empty folder.
-5. Create a folder to put the final CSV output in.
-6. Get an [Azure](https://azure.microsoft.com/en-us) API key and an [OpenAI](https://openai.com/) API key.
+5. Create a folder to put the final JSON output in.
+6. Get an [Azure](https://azure.microsoft.com/en-us) API key, a FormRecognizer endpoint, and an [OpenAI](https://openai.com/) API key. You will need to build a FormRecognizer instance in Azure to get this.
 7. Run the parser from the command line using the inputs you gathered in steps 3-6:
    ```bash
    $ python src/form_parser.py \
