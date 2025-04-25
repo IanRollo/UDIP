@@ -78,3 +78,12 @@ def num_tokens_from_messages(messages, model="gpt-3.5-turbo"):
         raise NotImplementedError(f"""num_tokens_from_messages() is not presently implemented for model {model}. See 
         https://github.com/openai/openai-python/blob/main/chatml.md for information on how messages are converted to 
         tokens.""")
+
+#The base debug file works pretty well, and it the most efficient in terms of tokens. Leaving it in for now.
+def generate_base_debug_file(analyze_result) -> str:
+    output_lines = []
+    # Iterate over each paragraph in the result
+    for paragraph in analyze_result.paragraphs:
+        # Make sure there is at least one bounding region and polygon
+            output_lines.append(f"{paragraph.content}")
+    return "\n".join(output_lines)

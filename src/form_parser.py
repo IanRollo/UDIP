@@ -13,14 +13,15 @@ Steps:
 """
 from azure.core.credentials import AzureKeyCredential
 from azure.ai.formrecognizer import DocumentAnalysisClient, AnalyzeResult
-from os import path, listdir, replace
+from os import path, listdir, getenv
 import json
 from src.document_reconstructor import DocumentReconstructor
-from src.utils import open_file
 import argparse
 from src.post_output_conversions import MessageConversions
 
-ENDPOINT = 'https://roformrecognizer1.cognitiveservices.azure.com/'
+ENDPOINT = getenv('FORMRECOGNIZER_ENDPOINT')
+if not ENDPOINT:
+    raise EnvironmentError("FORMRECOGNIZER_ENDPOINT environment variable not set.")
 
 
 class FormParser:
@@ -44,7 +45,6 @@ class FormParser:
             poller = self.analysis_client.begin_analyze_document(
                 "prebuilt-read", document=f
             )
-            f.close()
         return poller.result()
 
     def parse(self, result_analyzer) -> None:
@@ -82,7 +82,7 @@ class FormParser:
             json.dump(aggregated_results, output_file, indent=2)
 
 
-def __main__():
+def main():
     parser = argparse.ArgumentParser(
         prog='form_parser',
         description='Reads a folder full of images of forms and output the contents of all the forms to a single CSV.'

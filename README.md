@@ -23,7 +23,7 @@ During development, we've been running the form parser within PyCharm. To run th
 
 1. Clone this repository and navigate into the project directory.
    ```bash
-   $ cd ChatGPT4IR
+   $ cd UDIP
    ```
 2. Install the requirements. [Pip](https://pypi.org/project/pip/) is the most common package installer for Python; if you don't have it, you can download it at the linked page. Once you have pip installed, you can run this command to install the requirements for the form parser:
    ```bash
